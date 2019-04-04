@@ -1,12 +1,16 @@
 //Menu button
 
 .menu-btn {
+  display: block;
   position: absolute;
   z-index: 3;
   right: 35px;
   top: 35px;
   cursor: pointer;
   @include easeOut;
+  // @include atMedium {
+  //   display: none;
+  // }
 
   .btn-line {
     width: 28px;
@@ -44,21 +48,31 @@
   width: 100%;
   opacity: 0.9;
   visibility: hidden;
+  // @include atMedium {
+  //   visibility: visible;
+  // }
 
   &.show {
     visibility: visible;
   }
 
-  &-branding,
+  // &-branding,
   &-nav {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
     float: left;
-    width: 50%;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
+    // @include atMedium {
+    //   display: flex;
+    //   flex-flow: row wrap;
+    //   align-items: initial;
+    //   justify-content: flex-end;
+    //   height: auto;
+    // }
   }
 
   &-nav {
@@ -66,55 +80,67 @@
     padding: 0;
     background: darken($primary-color, 5);
     list-style: none;
-    transform: translate3d(0, -20%, 0);
     opacity: 0;
+    // transform: translate3d(0, 100%, 0);
+    opacity: 0;
+    // @include atMedium {
+    //   // transform: translate3d(0, 0, 0);
+    //   opacity: 1;
+    //   background: transparent;
+    // }
     @include easeOut;
 
     &.show {
       //slide in from top CHANGE THIS
-      transform: translate3d(0, 0, 0);
+      // transform: translate3d(0, 0, 0);
       opacity: 1;
+      display: flex;
     }
   }
   // Branding side
-  &-branding {
-    background: $primary-color;
-    transform: translate3d(0, 20%, 0);
-    opacity: 0;
-    @include easeOut;
+  // &-branding {
+  //   background: $primary-color;
+  //   transform: translate3d(0, 100%, 0);
+  //   opacity: 0;
+  //   @include easeOut;
 
-    &.show {
-      //slide in from bottom CHANGE THIS
-      transform: translate3d(0, 0, 0);
-      opacity: 1;
-    }
+  //   &.show {
+  //     //slide in from bottom CHANGE THIS
+  //     transform: translate3d(0, 0, 0);
+  //     opacity: 1;
+  //   }
 
-    .portrait {
-      width: 250px;
-      height: 250px;
-      background: url("../img/portrait.jpg");
-      border-radius: 50%;
-      border: solid 3px $secondary-color;
-    }
-  }
+  //   .portrait {
+  //     width: 250px;
+  //     height: 250px;
+  //     background: url("../img/portrait.jpg");
+  //     border-radius: 50%;
+  //     border: solid 3px $secondary-color;
+  //   }
+  // }
 
   .nav-item {
-    transform: translate3d(600px, 0, 0);
+    // transform: translate3d(600px, 0, 0);
     @include easeOut;
+    // @include atMedium {
+    //   // transform: translate3d(0, 0, 0);
+    //   margin: 0px 1rem 0px 0px;
+    //   text-align: center;
+    // }
 
     &.show {
       //slide in from right CHANGE THIS
-      transform: translate3d(0, 0, 0);
+      // transform: translate3d(0, 0, 0);
     }
 
-    &.current > a {
+    a.current {
       color: $secondary-color;
     }
   }
   .nav-link {
     display: inline-block;
     position: relative;
-    font-size: 30px;
+    font-size: 1rem;
     text-transform: uppercase;
     padding: 1rem 0;
     font-weight: 300;

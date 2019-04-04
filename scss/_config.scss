@@ -63,3 +63,35 @@ $background-opacity: 0.9;
     @content;
   }
 }
+
+//Mobile first mixins
+
+@mixin atSmall {
+  @media (min-width: 530px) {
+    /*Once a scree reaches 530px do this:*/
+    @content;
+  }
+}
+
+@mixin atMedium {
+  @media (min-width: 800px) {
+    @content;
+  }
+}
+
+@mixin atLarge {
+  @media (min-width: 1010px) {
+    @content;
+  }
+}
+
+/*These rules create mixins call atSmall etc and can be used as short hand for media queries*/
+/*If the content is larger than the minimum width, the min-width property has no effect.*/
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
